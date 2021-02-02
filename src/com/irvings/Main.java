@@ -12,7 +12,6 @@ public class Main {
     static Map<String, String> top;
 
     static Deque<Map<String, String>> transactions = new ArrayDeque<>();
-    static Map<String, LinkedList<Integer>> counts = new HashMap<>();
 
     public static void main(String[] args) {
         System.out.println("Enter command ...");
@@ -65,7 +64,6 @@ public class Main {
 
     public static void set(String key, String value) {
         map.put(key, value);
-        pushCount(value);
     }
 
     public static String get(String name) {
@@ -73,8 +71,7 @@ public class Main {
     }
 
     public static void delete(String name) {
-        String value = map.remove(name);
-        popCount(value);
+        map.remove(name);
     }
 
     public static long count(String value) {
@@ -113,23 +110,4 @@ public class Main {
         return "";
     }
 
-    public static void pushCount(String value) {
-        LinkedList<Integer> _counts;
-        if(counts.get(value) != null) {
-            _counts = counts.get(value);
-            _counts.push(1);
-        } else {
-            _counts = new LinkedList<>();
-            _counts.push(1);
-            counts.put(value, _counts);
-        }
-    }
-
-    public static void popCount(String value) {
-        LinkedList<Integer> _counts;
-        if(counts.get(value) != null) {
-            _counts = counts.get(value);
-            _counts.pop();
-        }
-    }
 }
