@@ -13,3 +13,5 @@
 
 4. Run the program:
     java Main
+   
+5. Alternatively use an IDE such as IntelliJ or Eclipse to run the app or copy to an online Java Sandbox
